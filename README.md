@@ -134,6 +134,16 @@ If you are interested in pursuing natural language processing for this project, 
 
 Rdkit, a popular chemoinformatics package, has different ways to generate fingerprints for molecules. Here is an example of generating such representation with python:
 
+```python
+from rdkit import Chem, DataStructs
+from rdkit.Chem import AllChem
+
+smiles = 'CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2CC(C(C(O2)C)O)(C)OC)C)OC3C(C(CC(O3)C)N(C)C)O)(C)O)C)C)O)(C)O'
+mol = Chem.MolFromSmiles(smiles)
+fp = AllChem.GetMorganFingerprintAsBitVect(mol, 3, useFeatures=True, nBits=1024)
+vector = list(fp)
+```
+
 More detailed information on this technique can be found [here](https://chemicbook.com/2021/03/25/a-beginners-guide-for-understanding-extended-connectivity-fingerprints.html).
 
 
